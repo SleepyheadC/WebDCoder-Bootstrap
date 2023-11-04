@@ -5,14 +5,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your Git repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: '']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/SleepyheadC/WebDCoder-Bootstrap.git']]])
             }
         }
 
         stage('Copy Files') {
             steps {
                 // Use the bat step to run xcopy
-                bat(script: 'xcopy /s /e /y "" "C:\\Apache24\\htdocs"')
+                bat(script: 'xcopy /s /e /y "D:\\Old documents and files\\Downloads\\shreya\\MCA 2nd Sem\\Javascript" "C:\\Apache24\\htdocs"')
             }
         }
 
