@@ -12,7 +12,7 @@ pipeline {
         stage('Copy Files') {
             steps {
                 // Use the bat step to run xcopy
-                bat(script: 'xcopy /s /e /y "D:\\Old documents and files\\Downloads\\shreya\\MCA 2nd Sem\\Javascript" "C:\\Apache24\\htdocs"')
+                bat(script: 'xcopy /s /e /y "D:\\Old documents and files\\Downloads\\shreya\\MCA 2nd Sem\\Javascript" "C:\\Apache24\\htdocs\\firstWebsite"')
             }
         }
 
