@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your Git repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: '']]])
+            }
+        }
+
+        stage('Copy Files') {
+            steps {
+                // Use the bat step to run xcopy
+                bat(script: 'xcopy /s /e /y "" "C:\\Apache24\\htdocs"')
+            }
+        }
+
+        // Add more stages as needed for your pipeline
+    }
+
+    post {
+        success {
+            // Define steps to execute on success
+            echo 'The build was successful!'
+        }
+        failure {
+            // Define steps to execute on failure
+            echo 'The build failed!'
+        }
+    }
+}
